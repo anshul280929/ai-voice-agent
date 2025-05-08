@@ -5,6 +5,7 @@ import { ExpertList } from "@/services/Options";
 import { UserButton, useUser } from "@stackframe/stack";
 
 import React from "react";
+import { BlurFade } from "@/components/magicui/blur-fade";
 
 function FeatureAssistant() {
   const user = useUser();
@@ -22,14 +23,16 @@ function FeatureAssistant() {
 
       <div className="grid grid-cols-2 lg:grid-cols-5 xl:gid-cols-5 gap-10 mt-10">
         {ExpertList.map((option,index)=>(
-          <div key={index} className="p-3 bg-secondary rounded-3xl flex flex-col justify center items-center">
-              <Image src={option.icon} alt={option.name} 
-                width={150}
-                height={150}
-                className="h-[70px] w-[70px]"
-              />
-              <h2 className="mt-2">{option.name}</h2>
-          </div>  
+          <BlurFade key={option.icon} delay={0.25 + index * 0.05} inView>
+            <div key={index} className="p-3 bg-secondary rounded-3xl flex flex-col justify center items-center">
+                <Image src={option.icon} alt={option.name} 
+                  width={150}
+                  height={150}
+                  className="h-[70px] w-[70px] hover:rotate-12 cursor-pointer transition-all "
+                />
+                <h2 className="mt-2">{option.name}</h2>
+            </div>
+          </BlurFade>  
         ))}
       </div>
     </div>

@@ -8,7 +8,7 @@ export const ExpertList=[
         icon:'/interview.png' 
     },
     {
-        name:'Ques Ans Prep',
+        name:'Question Answer Prep',
         icon:'/qa.png' 
     },
     {
